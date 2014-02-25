@@ -139,7 +139,6 @@ void binarize(const vector<shared_ptr<Blob<Dtype> > >& feature_blob_vector,
         ++k;
         if (k % size_of_code == 0) {
           binary_data[(k + size_of_code - 1) / size_of_code] = code;
-          printf("%d %lu", (k + size_of_code - 1) / size_of_code, code);
           code = 0;
         } else {
           code <<= 1;
@@ -148,7 +147,6 @@ void binarize(const vector<shared_ptr<Blob<Dtype> > >& feature_blob_vector,
       if (k % size_of_code != 0) {
         code <<= (size_of_code - 1 - k % size_of_code);
         binary_data[(k + size_of_code - 1) / size_of_code] = code;
-        printf("%d %lu", (k + size_of_code - 1) / size_of_code, code);
       }
     }  // for j
   }  // for i
